@@ -94,8 +94,11 @@ public class HashTable {
         }
     }
 
-    private static void log(String msg) {
+    private static void logln(String msg) {
         System.out.println(msg);
+    }
+    private static void log(String msg) {
+        System.out.print(msg);
     }
     public String toString() {
         int bucket = 0;
@@ -118,6 +121,10 @@ public class HashTable {
             }
         }
         return hashTableStr.toString();
+    }
+    public static void tableSize() {
+        System.out.print("Table Size: ");
+        System.out.println(size);
     }
 
     public static void main(String[] args) {
@@ -142,32 +149,32 @@ public class HashTable {
         hashTable.insert("kLimão", "Limão");
         hashTable.insert("kSuper", "Super");
         hashTable.insert("kCombo", "Combo");
-        log("-----------------------");
-        log("Printing the table data:");
-        log(hashTable.toString());
-        log("Table size:");
-        System.out.println(size);
-        log("-----------------------");
-        log("Getting the data for the key 'kDream':");
-        log(hashTable.get("kDream"));
-        log("-----------------------");
-        log("Removing the 'Zeppelin'");
-        hashTable.remove("kZeppelin");
-        log("Getting 'Zeppelin' value must return 'Key not Found':");
-        log(hashTable.get("kZeppelin"));
-        log("Printing the table data:");
-        log(hashTable.toString());
-        log("Table size:");
-        System.out.println(size);
-        log("-----------------------");
-        log("Removing the 'Dream'");
-        hashTable.remove("kDream");
-        log("Getting 'Dream' value must return 'Key not Found':");
-        log(hashTable.get("kDream"));
-        log("-----------------------");
-        log("Printing the table data:");
-        log(hashTable.toString());
-        log("Table size:");
-        System.out.println(size);
+        logln("-----------------------");
+
+        logln("Printing the table data:");
+        logln(hashTable.toString());
+        tableSize();
+        logln("-----------------------");
+        log("Getting the data for the key 'kDream': ");
+        logln(hashTable.get("kDream"));
+        logln("-----------------------");
+        logln("Removing a middle cell, 'Aero'.");
+        hashTable.remove("kAero");
+        log("Getting 'Aero' value must return 'Key not Found': ");
+        logln(hashTable.get("kAero"));
+        logln("-----------------------");
+        logln(hashTable.toString());
+        tableSize();
+        logln("-----------------------");
+        logln("Removing a lone cell, 'Combo'.");
+        hashTable.remove("kCombo");
+        logln(hashTable.toString());
+        tableSize();
+        logln("-----------------------");
+        logln("Removing a last cell, 'Limão'.");
+        hashTable.remove("kLimão");
+        logln("-----------------------");
+        logln(hashTable.toString());
+        tableSize();
         }
     }
