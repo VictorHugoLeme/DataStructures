@@ -1,4 +1,4 @@
-package main.java.HashTable;
+package main.java.hashtable;
 
 public class Node {
     String key;
