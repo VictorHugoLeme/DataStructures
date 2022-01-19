@@ -1,4 +1,4 @@
-package main.java;
+package main.java.HashTable;
 
 public class HashTable {
     private static final int INITIAL_SIZE = 10;
@@ -17,14 +17,14 @@ public class HashTable {
     public void insert(String key, String data) {
         int hash = getHash(key);
 
-        Node hashEntry = new Node(key, data);
+        Node entryNode = new Node(key, data);
         Node head = new Node(null, "head");
 
         if(entries[hash] == null) {
             // setting a head for a double linked list
             entries[hash] = head;
-            head.next = hashEntry;
-            hashEntry.previous = head;
+            head.next = entryNode;
+            entryNode.previous = head;
         }
         else {
             Node current = entries[hash];
@@ -32,7 +32,7 @@ public class HashTable {
 
                 current = current.next;
             }
-            current.next = hashEntry;
+            current.next = entryNode;
             current.next.previous = current;
         }
         size++;
